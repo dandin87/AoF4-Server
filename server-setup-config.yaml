@@ -6,7 +6,7 @@ modpack:
   
 install:
   mcVersion: 1.17.1
-  loaderVersion: 0.11.6
+  loaderVersion: 0.11.7
   modpackUrl: https://media.forgecdn.net/files/3420/600/All+of+Fabric+4-0.0.9.zip
   installerUrl: https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.3/fabric-installer-0.7.3.jar
   
@@ -14,6 +14,21 @@ install:
     - mods/optifine*.jar
     - resources/**
   additionalFiles:
+    # Additional mods not available on Curseforge
+    # With this mod installed boats will break when they fall from a great enough
+    # height and their passengers will take the appropriate amount of fall damage.
+    - url: https://cdn.modrinth.com/data/R1GcscrS/versions/1.0.0/boat-fall-1.0.0.jar
+      destination: mods/boat-fall-1.0.0.jar
+    # Helps Identify mods that crash inside a mixin
+    - url: https://github.com/Chocohead/Crafty-Crashes/releases/download/v1.0/Crafty-Crashes-1.0.jar
+      destination: mods/Crafty-Crashes-1.0.jar
+    # Allows players to opt in to pvp or not. Per player setting.
+    - url: https://github.com/manyrandomthings/pvp-toggle/releases/download/1.0.4/pvp-toggle-1.0.4.jar
+      destination: mods/pvp-toggle-1.0.4.jar
+    # Extends the default timeout limit to help limit connection issues
+    - url: https://github.com/PotatoPresident/TimeOutOut/releases/download/1.0.0/timeoutout-1.0.0.jar
+      destination: mods/timeoutout-1.0.0.jar
+
   localFiles: ~
   
   installerArguments:
@@ -23,7 +38,7 @@ install:
     - "-mcversion"
     - "1.17.1"
     - "-loader"
-    - "0.11.6"
+    - "0.11.7"
   modpackFormat: curse
   formatSpecific:
     ignoreProject: []
